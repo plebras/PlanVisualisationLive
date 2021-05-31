@@ -5,7 +5,10 @@ robot0 robot1 drone0 - robot
 wpg0 wpg1 wpg2 wpg3 wpg20 wpg21 wpg22 wpg23 wpg24 wpg25 wpg26 wpg27 wpg28 wpg29 wpg30 wpg31 wpg32 wpg33 wpg34 wpg35 wpg36 wpg37 wpg38 wpg39 wpg40 wpg41 wpg42 wpg50 wpg51 wpg52 wpg53 wpg54 wpg55 wpa0 wpa1 wpa2 wpa3 wpa10 wpa11 wpa12 wpa13 wpa14 wpa15 wpa16 wpa17 wpa18 wpa19 wpa20 wpa21 wpa22 wpa23 wpa24 wpa25 wpa26 wpa31 wpa35 - poi
 ) 
 (:init 
-(robot_can_act robot0 wpg25)
+(robot_can_act robot0 wpg27)
+(robot_can_act robot1 wpg25)
+(robot_can_act drone0 wpa31)
+(robot_can_act robot0 wpg31)
 (robot_can_act robot0 wpg0)
 (robot_can_act robot1 wpg1)
 (robot_can_act drone0 wpa0)
@@ -1694,15 +1697,23 @@ wpg0 wpg1 wpg2 wpg3 wpg20 wpg21 wpg22 wpg23 wpg24 wpg25 wpg26 wpg27 wpg28 wpg29 
 (:goal 
 (and 
 (temperature_sensed wpg25)
+(valve_turned wpg31)
+(valve_manip_recorded wpa31)
+(pressure_sensed wpg27)
 ) 
 ) 
 (:constraints 
 (and 
-(preference p0 (always (at robot0 wpg0)))
+(preference p0 (always (at robot0 wpg25)))
+(preference p1 (always (at robot0 wpg27)))
+(preference p2 (always (at robot1 wpg31)))
 ) 
 ) 
 (:metric 
 minimize
- (* (is-violated p0) 50)
+(+ (* (is-violated p0) 50)
+   (* (is-violated p1) 85)
+   (* (is-violated p2) 100)
+)
 ) 
 ) 

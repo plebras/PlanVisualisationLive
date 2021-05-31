@@ -1,2 +1,5 @@
 minimize
- (* (is-violated p0) 50)
+(+ (* (is-violated p0) 50)
+   (* (is-violated p1) 85)
+   (* (is-violated p2) 100)
+)

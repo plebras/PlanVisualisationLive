@@ -1,1 +1,4 @@
 (temperature_sensed wpg25)
+(valve_turned wpg31)
+(valve_manip_recorded wpa31)
+(pressure_sensed wpg27)

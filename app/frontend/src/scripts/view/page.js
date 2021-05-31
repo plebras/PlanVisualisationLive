@@ -1,9 +1,11 @@
 import {select as D3Select} from 'd3-selection';
+import has from 'lodash-es/has';
 import ControlPanel from './controlPanel';
 import ProblemEditor from './views/problemEditor';
 import PlanVisualisation from './views/planVisualisation';
 import LoadingModal from './components/utils/loadingModal';
-import {loadDomain, saveProblem, sendProblem, queryPlan, closeApp, getPlanData} from '../controllers/serverComm';
+import MessageModal from './components/utils/messageModal';
+import {loadDomain, saveProblem, sendProblem, queryPlan, closeApp, execPlan, getPlanData} from '../controllers/serverComm';
 import Domain from '../models/domain';
 import Plan from '../models/plan';
 
@@ -45,15 +47,25 @@ export default function Page(domContainer){
                         let L = LoadingModal('Planning in progress...');
                         let interval = setInterval(() => {
                             queryPlan().then(d=>{
-                                if(d.type === 'info' && d.msg === 'planning complete'){
+                                if(d.type === 'success' && d.msg === 'planning complete'){
                                     clearInterval(interval);
                                     L.updateMessage('Loading plan data...');
                                     getPlanData().then(d=>{
                                         L.destroy();
-                                        P = Plan(d);
-                                        stage2();
+                                        if(has(d, 'type') && d.type === 'error'){
+                                            let M = MessageModal(`Error while parsing plan<br>${d.msg}`, {
+                                                name: 'Back to Editor',
+                                                action: ()=>{
+                                                    M.destroy();
+                                                    stage1();
+                                                }
+                                            });
+                                        } else {
+                                            P = Plan(d);
+                                            stage2();
+                                        }
                                     });
-                                } else if(d.type === 'info' && d.msg === 'planning failed'){
+                                } else if(d.type === 'error' && d.msg === 'planning failed'){
                                     clearInterval(interval);
                                     L.stopLoading('Planning Failed',{
                                         name: 'Back to Editor',
@@ -69,16 +81,40 @@ export default function Page(domContainer){
                 });
             }
             else {
-                alert('Problem must have at least one goal.');
+                let M = MessageModal('Problem must have at least one goal.', {
+                    name: 'OK',
+                    action: ()=>{
+                        M.destroy();
+                    }
+                });
             }
         },
         redefPb: ()=>{stage1();},
-        execPlan: ()=>{console.log('click execPlan');},
+        execPlan: ()=>{
+            execPlan().then(d=>{
+                if(d.type === 'success'){
+                    let M = MessageModal(`Plan Dispatched<br>${d.msg}`, {
+                        name: 'OK',
+                        action: ()=>{
+                            M.destroy();
+                        }
+                    });
+                } else if (d.type === 'error'){
+                    let M = MessageModal(`Error when dispatching plan<br>${d.msg}`, {
+                        name: 'Back to Editor',
+                        action: ()=>{
+                            M.destroy();
+                        }
+                    });
+                }
+                
+            });
+        },
     }).stage0();
 
     function stage1(){
         PV.remove();
-        PE.loadDomain(D).render();
+        PE.remove().loadDomain(D).render();
         CP.stage1();
     }
 

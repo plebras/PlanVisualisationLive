@@ -48,9 +48,9 @@ def ui_query_plan():
     if plan_started and (not plan_completed or not plan_failed):
         return json.dumps({'type':'info', 'msg':'planning in progress'})
     elif plan_failed:
-        return json.dumps({'type':'info', 'msg':'planning failed', 'details': details})
+        return json.dumps({'type':'error', 'msg':'planning failed', 'details': details})
     elif plan_completed:
-        return json.dumps({'type':'info', 'msg':'planning complete'})
+        return json.dumps({'type':'success', 'msg':'planning complete'})
 
 def ui_send_roadmap_data():
     return json.dumps(planparser.roadmap.get_roadmap_data())
@@ -69,6 +69,14 @@ def ui_set_feature_weights(weights):
     if planparser.has_plan():
         planparser.project_plan_states(weights)
         return json.dumps(planparser.get_plan_states())
+
+def execute_plan():
+    # code to launch plan
+    success = True
+    if success:
+        return json.dumps({'type':'success', 'msg':'Check this app to monitor.'})
+    else:
+        return json.dumps({'type':'error', 'msg':'There was an error dispatching the plan.'})
 
 def close_application():
     shutdown = request.environ.get('werkzeug.server.shutdown')

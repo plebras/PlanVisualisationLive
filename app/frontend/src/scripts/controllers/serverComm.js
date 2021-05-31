@@ -1,4 +1,4 @@
-const baseUrl = 'http://127.0.0.1:2000/';
+const baseUrl = document.location.href;
 
 const LOG_DATA = true;
 
@@ -11,10 +11,8 @@ function getRoadmapData(){
             return r;
         });
 }
-// document.getElementById('roadmapData').onclick = getRoadmapData
 
 function getPlanData(){
-    // console.log('Fetching plan data')
     return fetch(baseUrl+'getPlan')
         .then(d=>d.json())
         .then(r=>{
@@ -87,6 +85,15 @@ function queryPlan(){
         });
 }
 
+function execPlan(){
+    return fetch(baseUrl+'execPlan', {method:'POST'})
+        .then(d=>d.json())
+        .then(r=>{
+            if(LOG_DATA)console.log('res: ', r);
+            return r;
+        });
+}
+
 function closeApp(){
     fetch(baseUrl+'close',{method:'POST'})
         .then(d=>d.text())
@@ -97,4 +104,4 @@ function closeApp(){
 }
 // document.getElementById('close').onclick = closeApp;
 
-export {loadDomain, saveProblem, sendProblem, queryPlan, getPlanData, updateFeatureWeights, getRoadmapData, closeApp};
+export {loadDomain, saveProblem, sendProblem, queryPlan, getPlanData, updateFeatureWeights, getRoadmapData, execPlan, closeApp};

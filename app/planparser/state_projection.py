@@ -29,7 +29,7 @@ class StateProjection:
                 row.append(cell)
             matrix.append(row)
         weights_sum = round_number(sum([v for _, v in self.feature_weights.items()]))
-        distance_matrix = [[round_number(sum([val/max_distances[feat]*self.feature_weights[feat] for feat, val in c.items()])/weights_sum) for c in r] for r in matrix]
+        distance_matrix = [[round_number(sum([val/max_distances[feat]*self.feature_weights[feat] if max_distances[feat] > 0.0 else 0 for feat, val in c.items()])/weights_sum) for c in r] for r in matrix]
         return distance_matrix
 
     def do_projection(self, distances):

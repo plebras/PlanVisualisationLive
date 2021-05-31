@@ -1,1 +1,3 @@
-(preference p0 (always (at robot0 wpg0)))
+(preference p0 (always (at robot0 wpg25)))
+(preference p1 (always (at robot0 wpg27)))
+(preference p2 (always (at robot1 wpg31)))

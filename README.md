@@ -6,6 +6,7 @@
 - [Description](#description)
 - [Running](#running)
 - [Updating the Model](#updating-the-model)
+- [Dispatching the Plan](#dispatching-the-plan)
 - [Developer Guide](#developer-guide)
     - [Flask Application](#flask-application)
     - [Front-End](#front-end)
@@ -58,6 +59,19 @@ To update the domain used by the application, the following files needs updating
 
 Details on the format and content of these files can be found below.
 
+## Dispatching the Plan
+
+Integrating the plan dispatch process can be done in the `app/controller.py` file, specifically in the `execute_plan()` function:
+```python
+def execute_plan():
+    # code to launch plan
+    success = True
+    # different messages sent to the interface
+    if success:
+        return json.dumps({'type':'success', 'msg':'Success message, e.g. where to monitor plan progress.'})
+    else:
+        return json.dumps({'type':'error', 'msg':'Error message.'})
+```
 
 ## Developer Guide
 

@@ -41,6 +41,10 @@ def set_feature_weights():
 def get_roadmap():
     return controller.ui_send_roadmap_data()
 
+@app.route('/execPlan', methods = ['POST'])
+def execute_plan():
+    return controller.execute_plan()
+
 @app.route('/close', methods = ['POST'])
 def close_app():
     return controller.close_application()
