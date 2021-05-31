@@ -1,11 +1,30 @@
-# Planner/Visualiser Framework
+# Planner-Visualiser Framework
 
 > *Authors*: **Pierre Le Bras** and **Yaniel Carreno** <br>
 > *Version*: 4 - Live Editing, Planning and Visualising
 
+- [Description](#description)
+- [Running](#running)
+- [Updating the Model](#updating-the-model)
+- [Developer Guide](#developer-guide)
+    - [Flask Application](#flask-application)
+    - [Front-End](#front-end)
+- [Framework Architecture](#framework-architecture)
+- [File Structure](#file-structure)
+- [Domain Model and Problem Writer](#domain-model-and-problem-writer)
+    - [Environment Model](#environment-model)
+    - [Robots Model](#robots-model)
+    - [Goals and Preferences Model](#goals-and-preferences-model)
+    - [Problem Model](#problem-model)
+    - [Problem Writer](#problem-writer)
+- [Task Allocator and Planner](#task-allocator-and-planner)
+- [Plan Parser](#plan-parser)
+- [Front-End Architecture](#front-end-architecture)
+
+
 ## Description
 
-This instance of the Planner / Visualiser framework builds on top of previous offline planning iterations to support live problem edition, plan generation and plan visualisation. It integrates together:
+This instance of the Planner-Visualiser framework builds on top of previous offline planning iterations to support live problem edition, plan generation and plan visualisation. It integrates together:
  - a graphical interface for guiding users in specifying robots, goals and preferences for their problem, in accordance with domain constraints;
  - a task-allocation and planner system generating plans; and
  - a visualisation interface presenting the plan to users for safety checks and approval.
@@ -53,7 +72,7 @@ To enter the debug mode, allowing you to have the application and interface relo
 $ python run.py -d
 ```
 
-### Front End
+### Front-End
 
 The frontend application is contained within the `app/frontend` directory. The sources (script and styles) are located in the `src` subfolder and bundled together in the `app/dist` subfolder, along with the top level file for the interface `index.html`.
 
@@ -209,7 +228,7 @@ The model for the plan environment is defined in `map.json` and `distance_time.j
  - `objects_types` lets you list the different types of object in the environment, it is used to help users specify correct goals for their problems.
 
 Given the `waypoints` define in `map.json`, you also need to list the temporal distances separating them, which will be compiled in the problem files and used by the planner to define movements. These distances are described in `distance_time.json`:
-```json
+```json5
 [
     [wp1_name, wp2_name, distance],
     ...
@@ -219,7 +238,7 @@ Given the `waypoints` define in `map.json`, you also need to list the temporal d
 ### Robots Model
 
 The robots model is contain within the `robots.json` file. It lists the robots accessible by the planner and displayed to the user when specifying their problem, along with their default properties. It also lists the capabilities and types of robots:
-```json
+```json5
 {
     "robots":[
         {
@@ -266,7 +285,7 @@ The filed marked with an \* are displayed in the problem editor, those marked wi
 
 The goals and preferences models are described in `goals.json`. The aim of these models is simply to provide signature for the goals and preferences/constraints statements in the problem files.
 
-```json
+```json5
 {
     "goal_types":[
         {
@@ -313,7 +332,7 @@ The goals and preferences models are described in `goals.json`. The aim of these
 
 The problem model is contained within `problem.json`. It describes the problem specifications set by the user via the problem editor interface.
 
-```json
+```json5
 {
     "robots": [
         {
@@ -552,9 +571,9 @@ Two feature names are reserved:
  - `'position'` will automatically create features for the spatial dimensions described in `domain/data/map.json`, matching a waypoint name to coordinates;
  - `'actor'` will automatically use the robot name (use '-1' to fill the rule).
 
-## Frontend Architecture
+## Front-End Architecture
 
-The following chart shows the dependencies between JavaScript modules of the frontend (`src/scripts`):
+The following chart shows the dependencies between JavaScript modules of the front-end (`src/scripts`):
 ![Frontent Architecture](img/archi_front.png)
 
 The `main.js` script directly implements an instance of `page.js`. This instance then loads a `controlPanel.js` instance, which will be used to control the various stages of the application.
