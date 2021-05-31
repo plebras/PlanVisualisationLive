@@ -1,0 +1,44 @@
+@import '../utils/font.less';
+@import '../utils/colors.less';
+
+div.controlPanel{
+    border: solid 1px @clr-drk-gry;
+
+    div.section{
+        margin: 40px 5px;
+        width: calc(100% - 10px);
+        border-top: solid 1px @clr-drk-gry;
+        border-bottom: solid 1px @clr-drk-gry;
+
+        div{
+            font-family: @title-font;
+            font-weight: 600;
+            width: calc(100% - 10px);
+            font-size: 1.3em;
+            margin: 10px 0px;
+            &.btn{
+                font-family: @text-font;
+                font-weight: 400;
+                width: calc(100% - 8px - 2rem);
+                text-align: center;
+                font-size: 1em;
+            }
+
+        }
+
+        &.disabled{
+
+            div{
+                font-style: italic;
+                color: @clr-gry;
+                &.btn{
+                    background-color: @clr-lgt-gry;
+                    cursor: none;
+                    pointer-events: none;
+                }
+    
+            }
+        }
+        
+    }
+}

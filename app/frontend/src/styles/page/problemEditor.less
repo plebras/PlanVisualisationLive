@@ -1,0 +1,54 @@
+@import '../utils/font.less';
+@import '../utils/colors.less';
+
+@import '../components/titles.less';
+
+div.problemEditor{
+    border: solid 1px @clr-drk-gry;
+    padding: 5px 20px;
+
+    max-height: 100%;
+
+    display: grid;
+    grid-template-rows: 50px calc(100% - 50px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    // column-gap: 2%;
+    grid-template-areas:
+        "title title title"
+        "sec1  sec2  sec3 ";
+
+    h2 {
+        grid-area: title;
+    }
+
+    div.section {
+        padding: 5px 5px;
+
+        div.list{
+            overflow-y: scroll;
+            height: calc(100% - 35px);
+
+            /*Hide scrollbar*/
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            &::-webkit-scrollbar { /* Chrome, Safari and Opera */
+                display: none;
+            }
+        }
+
+        &.sec1 {
+            grid-area: sec1;
+            height: calc(100% - 10px);
+            border-right: solid 1px @clr-drk-gry;
+        }
+        &.sec2 {
+            grid-area: sec2;
+            height: calc(100% - 10px);
+            border-right: solid 1px @clr-drk-gry;
+        }
+        &.sec3 {
+            grid-area: sec3;
+            height: calc(100% - 10px);
+        }
+    }
+}

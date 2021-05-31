@@ -1,0 +1,67 @@
+@import '../../utils/colors.less';
+@import '../../utils/font.less';
+@import '../../utils/viz.less';
+@import '../../utils/tooltip.less';
+
+svg.sceneMap{
+
+    // border: solid 1px @clr-blk;
+
+    g.map{
+
+        g.back{
+            rect{
+                fill: @clr-lgter-gry;
+            }
+            image{
+                opacity: 0.8;
+            }
+            line{
+                stroke: @clr-lgt-gry;
+                stroke-width: 0.5px;
+                stroke-dasharray: 5,5;
+            }
+            rect.void{
+                fill: @clr-wht;
+            }
+            rect.block{
+                fill: @clr-gry;
+            }
+            line.wall{
+                stroke: @clr-gry;
+                stroke-width: 2px;
+                stroke-dasharray: none;
+                stroke-linecap: round;
+            }
+            g.machine{
+                circle{
+                    fill: @clr-blk;
+                }
+                text{
+                    fill: @clr-wht;
+                    font-family: @text-font;
+                    text-anchor: middle;
+                    alignment-baseline: middle;
+                }
+            }
+        }
+        
+    }
+    // g.altitude{
+        
+    // }
+    g.actor{
+        polygon{
+            fill: @clr-blk;
+        }
+        &.faded{
+            opacity: 0.3;
+        }
+        &:focus{
+            outline: none;
+        }
+    }
+    text{
+        font-family: @title-font;
+    }
+}

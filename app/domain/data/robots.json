@@ -1,0 +1,124 @@
+{
+    "robots":[
+        {
+            "name": "robot0",
+            "id": "h0",
+            "type": "ground",
+            "waypoints": "wpg",
+            "position": "wpg0",
+            "available": true,
+            "energy": 100,
+            "recharge_points": ["wpg0"],
+            "capabilities":[
+                "can_explore",
+                "can_inspect_valve",
+                "can_sense_temperature",
+                "can_sense_pressure",
+                "can_take_picture",
+                "can_turn_valve"
+            ],
+            "advanced": {
+                "speed": 0.5,
+                "consumption": 0.01,
+                "recharge_rate": 20,
+                "data_acquired": 0,
+                "data_capacity": 30,
+                "comm_data_dur": 20,
+                "check_pressure_dur": 20,
+                "check_temperature_dur": 20,
+                "valve_inspection_dur": 50,
+                "manipulate_valve_dur": 30
+            }
+        },
+        {
+            "name": "robot1",
+            "id": "h1",
+            "type": "ground",
+            "waypoints": "wpg",
+            "position": "wpg1",
+            "available": true,
+            "energy": 100,
+            "recharge_points": ["wpg1"],
+            "capabilities":[
+                "can_explore",
+                "can_inspect_valve",
+                "can_sense_temperature",
+                "can_sense_pressure",
+                "can_take_picture",
+                "can_turn_valve"
+            ],
+            "advanced": {
+                "speed": 0.5,
+                "consumption": 0.01,
+                "recharge_rate": 20,
+                "data_acquired": 0,
+                "data_capacity": 30,
+                "comm_data_dur": 20,
+                "check_pressure_dur": 20,
+                "check_temperature_dur": 20,
+                "valve_inspection_dur": 50,
+                "manipulate_valve_dur": 30
+            }
+        },
+        {
+            "name": "drone0",
+            "id": "q0",
+            "type": "air",
+            "waypoints": "wpa",
+            "position": "wpa0",
+            "available": true,
+            "energy": 100,
+            "recharge_points": ["wpa0"],
+            "capabilities":[
+                "can_explore",
+                "can_supervise_process",
+                "can_take_picture"
+            ],
+            "advanced": {
+                "speed": 0.8,
+                "consumption": 0.08,
+                "recharge_rate": 30,
+                "data_acquired": 0,
+                "data_capacity": 30,
+                "comm_data_dur": 20,
+                "take_image_dur": 15
+            }
+        },
+        {
+            "name": "drone1",
+            "id": "q1",
+            "type": "air",
+            "waypoints": "wpa",
+            "position": "wpa1",
+            "available": false,
+            "energy": 30,
+            "recharge_points": ["wpa1"],
+            "capabilities":[
+                "can_explore",
+                "can_supervise_process",
+                "can_take_picture"
+            ],
+            "advanced": {
+                "speed": 0.8,
+                "consumption": 0.08,
+                "recharge_rate": 30,
+                "data_acquired": 0,
+                "data_capacity": 30,
+                "comm_data_dur": 20,
+                "take_image_dur": 15
+            }
+        }
+    ],
+    "capabilities":[
+        "can_explore",
+        "can_inspect_valve",
+        "can_supervise_process",
+        "can_sense_temperature",
+        "can_sense_pressure",
+        "can_take_picture",
+        "can_turn_valve"
+    ],
+    "types":[
+        "ground", "air"
+    ]
+}

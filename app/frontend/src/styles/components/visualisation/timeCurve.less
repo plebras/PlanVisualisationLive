@@ -1,0 +1,68 @@
+@import '../../utils/colors.less';
+@import '../../utils/font.less';
+@import '../../utils/viz.less';
+@import '../../utils/tooltip.less';
+
+svg.timeCurveSvg{
+    // margin: 0px auto;
+    // border: solid 1px @clr-blk;
+
+    g.timeCurves{
+        path.timeCurve{
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke: @clr-blk;
+            // stroke-width: 2px;
+            &.faded{
+                stroke-opacity: 0.1;
+            }
+        }
+        g.state{
+            circle{
+                stroke: none;
+                cursor: pointer;
+                &.highlight{
+                    fill: @clr-wht;
+                    stroke-width: 3px;
+                }
+                &:focus{
+                    outline: none;
+                }
+            }
+            &.faded{
+                circle{
+                    opacity: 0.3;
+                }
+            }
+            &:focus{
+                outline: none;
+            }
+        }
+        g.estimate{
+            &.faded{
+                polygon{
+                    opacity: 0.3;
+                }
+            }
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+
+    g.legend{
+        g{
+            line{
+                fill: none;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke: @clr-blk;
+                stroke-width: 4px;
+            }
+        }
+        text{
+            font-family: @text-font;
+        }
+    }
+}

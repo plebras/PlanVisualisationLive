@@ -1,0 +1,101 @@
+@import '../../utils/colors.less';
+@import '../../utils/font.less';
+@import '../../utils/viz.less';
+@import '../../utils/tooltip.less';
+
+svg.activitychart{
+
+    // border: solid 1px @clr-blk;
+
+    text{
+        font-family: @text-font;
+        color: @clr-blk;
+    }
+
+    line{
+        stroke: @clr-blk;
+        stroke-width: 1px;
+    }
+
+    g{
+        rect.background{
+            fill: @clr-wht;
+        }
+    }
+
+    g.actorsColumn{
+        line{
+            stroke: @clr-lgt-gry;
+            stroke-width: 1px;
+        }
+    }
+
+    g.timeMark{
+        line{
+            stroke: @clr-blk;
+            stroke-width: 2px;
+            stroke-dasharray: 10,5;
+        }
+        polygon{
+            fill: @clr-blk;
+        }
+        text{
+            text-anchor: middle;
+        }
+    }
+
+    g.activity{
+        
+        g.backgroundLines{
+            line.timelines{
+                stroke: lighten(@clr-lgt-gry, 10%);
+                stroke-width: 1px;
+                &.mark{
+                    stroke: @clr-lgt-gry;
+                    stroke-width: 2px;
+                    stroke-dasharray: none;
+                }
+            }
+            line.actorlines{
+                stroke: @clr-lgt-gry;
+                stroke-width: 1px;
+            }
+        }
+        g.activitybars{
+            rect.hasChildren{
+                cursor: pointer;
+                opacity: 1.0;
+                stroke: @clr-blk;
+                stroke-width: 2px;
+                &.unfolded{
+                    stroke-width: 0px;
+                    opacity: 0.5;
+                }
+            }
+            text{
+                alignment-baseline: middle;
+                &.hidden{
+                    visibility: hidden;
+                }
+            }
+            &.faded{
+                rect{
+                    opacity: 0.3;
+                }
+            }
+            &:focus{
+                outline: none;
+            }
+        }
+        g.dependenciesLine{
+            path{
+                stroke: @clr-blk;
+                stroke-width: 2px;
+                fill: none;
+            }
+            circle{
+                fill: @clr-blk;
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+# makespan_static_actions.yaml file
+
+#makespan
+makespan_goals:
+  explored: 0
+  image_captured: 15
+  temperature_sensed: 20
+  pressure_sensed: 20
+  valve_inspected: 50
+  valve_turned: 30
+  valve_manip_recorded: 30
+
+# capability required to implement a goal
+capability:
+  image_captured: can_take_picture
+  valve_inspected: can_inspect_valve
+  temperature_sensed: can_sense_temperature
+  pressure_sensed: can_sense_pressure
+  valve_turned: can_turn_valve
+  explored: can_explore
+  valve_manip_recorded: can_supervise_process
+
+# redundancy
+redundancy:
+  image_captured:
+    - none
+  valve_inspected:
+    - none
+  temperature_sensed:
+    - none
+  pressure_sensed:
+    - none
+  valve_turned:
+    - none
+  explored:
+    - none
+  valve_manip_recorded:
+    - none
+
+# action-duration
+duration_functions:
+  comm_data_dur: 20
+  take_image_dur: 15
+  check_pressure_dur: 20
+  check_temperature_dur: 20
+  valve_inspect_dur: 50
+  manipulate_valve_dur: 30

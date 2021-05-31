@@ -1,0 +1,3 @@
+robot0[can_explore, can_inspect_valve, can_sense_temperature, can_sense_pressure, can_take_picture, can_turn_valve]{wpg}
+robot1[can_explore, can_inspect_valve, can_sense_temperature, can_sense_pressure, can_take_picture, can_turn_valve]{wpg}
+drone0[can_explore, can_supervise_process, can_take_picture]{wpa}

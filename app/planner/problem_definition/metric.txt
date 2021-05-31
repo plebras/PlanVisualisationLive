@@ -1,0 +1,2 @@
+minimize
+ (* (is-violated p0) 50)

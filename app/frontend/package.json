@@ -1,0 +1,35 @@
+{
+  "name": "planvis",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "watch": "./node_modules/.bin/rollup -c -w",
+    "build": "NODE_ENV=production ./node_modules/.bin/rollup -c"
+  },
+  "author": "P Le Bras",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@rbnlffl/rollup-plugin-eslint": "^1.1.2",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-replace": "^2.3.3",
+    "autoprefixer": "^9.8.6",
+    "eslint": "^7.9.0",
+    "less": "^3.12.2",
+    "reload": "^3.1.0",
+    "rollup": "^2.27.1",
+    "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "dependencies": {
+    "d3": "^6.2.0",
+    "lodash-es": "^4.17.15",
+    "tippy.js": "^6.2.7"
+  }
+}

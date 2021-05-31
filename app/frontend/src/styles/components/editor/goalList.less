@@ -1,0 +1,69 @@
+@import '../../utils/font.less';
+@import '../../utils/colors.less';
+@import '../titles.less';
+
+div.goalList{
+
+    div{
+        margin: 5px;
+        padding: 10px;
+        color: @clr-blk;
+        font-family: @text-font;
+
+        &.createGoal{
+            display: grid;
+            grid-template-areas:
+                "type add"
+                "params add";
+            grid-template-columns: 85% 15%;
+            grid-row-gap: 8px;
+
+            span.type{
+                grid-area: type;
+            }
+            div.params{
+                margin: 0px;
+                padding: 0px;
+                grid-area: params;
+                display: grid;
+                grid-row-gap: 4px;
+            }
+            span.add{
+                text-align: center;
+                font-weight: 600;
+                font-size: 1.2em;
+                padding: .1em;
+                grid-area: add;
+            }
+        }
+
+        &.goal{
+
+            border: solid 2px @clr-prm;
+            border-radius: 4px;
+            background-color: @clr-wht;
+
+            display: grid;
+            grid-template-areas:
+                "type rm"
+                "params rm";
+            grid-template-columns: 85% 15%;
+            grid-row-gap: 4px;
+
+            span.type{
+                grid-area: type;
+            }
+            span.params{
+                padding-left: 10px;
+                grid-area: params;
+            }
+            span.rm{
+                text-align: center;
+                font-weight: 600;
+                font-size: 1.2em;
+                padding: .1em;
+                grid-area: rm;
+            }
+        }
+    }
+}

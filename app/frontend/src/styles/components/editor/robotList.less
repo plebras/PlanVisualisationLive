@@ -1,0 +1,61 @@
+@import '../../utils/font.less';
+@import '../../utils/colors.less';
+@import '../titles.less';
+
+div.robotList{
+
+    div.robot{
+
+        border: solid 2px @clr-prm;
+        border-radius: 4px;
+        background-color: @clr-wht;
+        margin: 5px;
+        padding: 10px;
+        color: @clr-blk;
+
+        font-family: @text-font;
+
+        display: grid;
+        row-gap: 8px;
+        grid-template-areas:
+            "name type use"
+            "start start start"
+            "fuel fuel fuel";
+
+        span.name{
+            grid-area: name;
+            font-weight: 600;
+            // margin-bottom: 5px;
+        }
+        span.type{
+            grid-area: type;
+            font-style: italic;
+            color: @clr-drk-gry;
+            font-size: 0.9em;
+            // margin-bottom: 5px;
+        }
+        span.use{
+            grid-area: use;
+            // margin-bottom: 5px;
+            text-align: end;
+        }
+        span.start{
+            grid-area: start;
+            // margin-bottom: 5px;
+        }
+        span.fuel{
+            grid-area: fuel;
+        }
+
+        &.disabled{
+            border-color: @clr-gry;
+            background-color: @clr-lgter-gry;
+            span.name, span.type, span.start, span.fuel{
+                font-style: italic;
+                color: @clr-gry;
+                pointer-events: none;
+                // margin-bottom: 5px;
+            }
+        }
+    }
+}

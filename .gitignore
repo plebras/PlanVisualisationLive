@@ -1,0 +1,6 @@
+**.odg
+***.py[cod]
+_data/
+.vscode/
+_old/
+_tmp/

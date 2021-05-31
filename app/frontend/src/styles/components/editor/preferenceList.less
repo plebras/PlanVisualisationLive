@@ -1,0 +1,92 @@
+@import '../../utils/font.less';
+@import '../../utils/colors.less';
+@import '../titles.less';
+
+div.preferenceList{
+
+    div{
+        margin: 5px;
+        padding: 10px;
+        color: @clr-blk;
+        font-family: @text-font;
+
+        &.createPreference{
+
+            display: grid;
+            grid-template-areas:
+                "type add"
+                "goals add"
+                "weight add";
+            grid-template-columns: 85% 15%;
+            grid-row-gap: 8px;
+            
+            span.type{
+                grid-area: type;
+            }
+            div.goals{
+                margin: 0px;
+                padding: 0px;
+                grid-area: goals;
+                display: grid;
+                grid-row-gap: 4px;
+
+                div.goal{
+                    margin: 0px;
+                    padding: 0px;
+                    display: grid;
+                    grid-row-gap: 2px;
+                    span.goalType{
+                        text-transform: capitalize;
+                    }
+                    span.param{
+                        margin-left: 20px;
+                    }
+                }
+            }
+            span.weight{
+                grid-area: weight;
+            }
+            span.add{
+                text-align: center;
+                font-weight: 600;
+                font-size: 1.2em;
+                padding: .1em;
+                grid-area: add;
+            }
+        }
+
+        &.preference{
+            border: solid 2px @clr-prm;
+            border-radius: 4px;
+            background-color: @clr-wht;
+
+            display: grid;
+            grid-template-areas:
+                "type rm"
+                "goal rm";
+            grid-template-columns: 85% 15%;
+            grid-row-gap: 4px;
+
+            span.type{
+                grid-area: type;
+                span{
+                    font-style: italic;
+                    color: @clr-gry;
+                }
+            }
+            span.goals{
+                padding-left: 10px;
+                grid-area: goal;
+                display: flex;
+                flex-direction: column;
+            }
+            span.rm{
+                text-align: center;
+                font-weight: 600;
+                font-size: 1.2em;
+                padding: .1em;
+                grid-area: rm;
+            }
+        }
+    }
+}

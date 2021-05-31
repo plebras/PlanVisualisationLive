@@ -1,0 +1,2 @@
+robot0 robot1 drone0 - robot
+wpg0 wpg1 wpg2 wpg3 wpg20 wpg21 wpg22 wpg23 wpg24 wpg25 wpg26 wpg27 wpg28 wpg29 wpg30 wpg31 wpg32 wpg33 wpg34 wpg35 wpg36 wpg37 wpg38 wpg39 wpg40 wpg41 wpg42 wpg50 wpg51 wpg52 wpg53 wpg54 wpg55 wpa0 wpa1 wpa2 wpa3 wpa10 wpa11 wpa12 wpa13 wpa14 wpa15 wpa16 wpa17 wpa18 wpa19 wpa20 wpa21 wpa22 wpa23 wpa24 wpa25 wpa26 wpa31 wpa35 - poi

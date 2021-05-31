@@ -1,0 +1,67 @@
+{
+    "goal_types":[
+        {
+            "name": "valve_inspected",
+            "parameters": ["valve"]
+        },{
+            "name": "valve_turned",
+            "parameters": ["valve"]
+        },{
+            "name": "pressure_sensed",
+            "parameters": ["waypoint"]
+        },{
+            "name": "temperature_sensed",
+            "parameters": ["waypoint"]
+        },{
+            "name": "image_captured",
+            "parameters": ["waypoint"]
+        },{
+            "name": "valve_manip_recorded",
+            "parameters": ["valve"]
+        },{
+            "name": "explored",
+            "parameters": ["waypoint"]
+        }
+    ],
+    "preference_types":[
+        {
+            "name": "always",
+            "goals": ["predicate"]
+        },{
+            "name": "sometime",
+            "goals": ["predicate"]
+        },{
+            "name": "within",
+            "goals": ["number", "predicate"]
+        },{
+            "name": "at-most-once",
+            "goals": ["predicate"]
+        },{
+            "name": "sometime-after",
+            "goals": ["predicate", "predicate"]
+        },{
+            "name": "sometime-before",
+            "goals": ["predicate", "predicate"]
+        },{
+            "name": "always-within",
+            "goals": ["number", "predicate", "predicate"]
+        },{
+            "name": "hold-during",
+            "goals": ["number", "number", "predicate"]
+        },{
+            "name": "hold-after",
+            "goals": ["number", "predicate"]
+        }
+    ],
+    "preference_predicates":[
+        {
+            "name":"at",
+            "type": "state",
+            "parameters": ["robot", "waypoint"]
+        },{
+            "name": "energy",
+            "type": "function",
+            "parameters": ["robot"]
+        }
+    ]
+}
