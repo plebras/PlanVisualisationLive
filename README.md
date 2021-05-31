@@ -153,7 +153,7 @@ The domain model contains data that will assist the user in specifying requireme
 The model for the plan environment is defined in `map.json` and `distance_time.json`.
 
 `map.json` has the following structure:
-```json
+```json5
 {
     "dimensions":{
         "x":[min_x_value, max_x_value],
