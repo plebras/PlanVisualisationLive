@@ -1,4 +1,4 @@
-# Planner-Visualiser Framework
+# Planner-Visualiser Framework [![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
 
 > *Authors*: **Pierre Le Bras** and **Yaniel Carreno** <br>
 > *Version*: 4 - Live Editing, Planning and Visualising
@@ -599,3 +599,13 @@ Given the stage the application is in, the page instance will instantiate one of
 Each of the view modules import styles from the `scr/styles` directory.
 
 This sources are all bundled using `main.js` as the root element. The bundled and minified scripts and styles are saved into two files in the `app/dist` directory: `PlanVis.js` and `PlanVis.css`. These files are then called by the `index.html` file which is served by the Flack application onto a local web server: `127.0.0.1:2000`. Note that the port number defaults to `2000`, but can be customized when calling the `run.py` script using the `-p` option.
+
+---
+This work is licensed under a [Creative Commons Attribution 4.0 International
+License][cc-by-nc].
+
+[![CC BY-NC 4.0][cc-by-nc-image]][cc-by-nc]
+
+[cc-by-nc]: http://creativecommons.org/licenses/by-nc/4.0/
+[cc-by-nc-image]: https://i.creativecommons.org/l/by-nc/4.0/88x31.png
+[cc-by-nc-shield]: https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg
